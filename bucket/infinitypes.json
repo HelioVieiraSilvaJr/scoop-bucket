@@ -1,0 +1,22 @@
+{
+    "version": "0.1.0",
+    "description": "Ditado que transforma a fala em prompts para IAs de codificação.",
+    "homepage": "https://github.com/HelioVieiraSilvaJr/InfiniTypes",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HelioVieiraSilvaJr/InfiniTypes/releases/download/v0.1.0/InfiniTypes-windows-x64.zip",
+            "hash": "2c92f09308ee0f5c7ee8080b01506a10f68c74268dd3b1dbfe8d920dc20548b0"
+        },
+        "arm64": {
+            "url": "https://github.com/HelioVieiraSilvaJr/InfiniTypes/releases/download/v0.1.0/InfiniTypes-windows-arm64.zip",
+            "hash": "5d687fb2449bae58c47ec5ef319974216c8e7ecde6ea1809a1fc5c493398ba63"
+        }
+    },
+    "shortcuts": [
+        [
+            "InfiniTypes.exe",
+            "InfiniTypes"
+        ]
+    ]
+}

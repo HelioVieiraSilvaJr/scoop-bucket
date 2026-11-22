@@ -1,0 +1,32 @@
+name: Atualizar o InfiniTypes
+
+# Confere a cada 6 horas se saiu uma versão nova do InfiniTypes e atualiza o manifesto.
+# Para atualizar na hora, rode este workflow na aba Actions (Run workflow).
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Atualiza o manifesto para a versão mais recente
+        id: update
+        run: scripts/update.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Grava a nova versão
+        if: steps.update.outputs.version
+        run: |
+          jq empty bucket/infinitypes.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "InfiniTypes ${{ steps.update.outputs.version }}"
+          git push
